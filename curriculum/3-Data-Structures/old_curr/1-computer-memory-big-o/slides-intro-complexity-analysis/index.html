@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Reveal JS presentation</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/monokai.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
+	
+	
+	
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/customcontrols/style.css">
+  
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/simple.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="libs/styles/tasklist.css">
+	<link rel="stylesheet" href="libs/styles/iota.css">
+	<link rel="stylesheet" href="libs/styles/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+
+   <!-- css list -->
+	
+
+   
+
+</head>
+
+<body>
+
+   
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+
+
+    
+        <section >
+            
+            <h1>Complexity Analysis: Time and Space</h1>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>An embarassment of riches - modern computing</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>These days computers are very powerful - they have lots of processing power and lots of memory (space for data). For most of the programs you write in this class your computer will be so powerful that it would be difficult to detect a difference between an extremely efficient program and an inefficient one (both doing the same thing).</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>It wasn’t always this way. For decades, programmers always had to work against the limitations of processor power and memory.</p>
+<p>And, as a professional software engineer these concerns are still relevant:</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ul>
+<li>Web app load times over low-bandwidth connections (which is a large percentage of the world).</li>
+<li>Applications or data at scale (Google processes over 99,000 searches <em>per second</em>).</li>
+<li>Embedded systems (IoT devices, etc).</li>
+<li>Energy efficiency.</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>What is complexity analysis?</h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p><em>Complexity analysis</em> is the term for how programmers think about the <strong>perfomance</strong> of a program:</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ol>
+<li>How long (how much processing power, how many CPU cycles) does it take to run?</li>
+<li>How much space (memory) does it take up?</li>
+</ol>
+<p>In other words …</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ol>
+<li>Time</li>
+<li>Space</li>
+</ol>
+<p><img src="./page-resources/time-and-space.jpg" alt="time and space"></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Things we care about - worst case perfomance</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Programmers usually care about the <strong>worst-case performance</strong> of their programs, as that is when possible problems (like running out of memory!) can occur. We will discuss Big-O later but it encapsulates this idea of using worst-case performance to evaluate and compare programs.</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Things we don’t care about - real numbers and details</h3>
+<p>Programmers usually don’t care about best-case performance. Sometimes we may care about average-case perfomance.</p>
+<p>Most importantly, when it comes to complexity analysis, we don’t care about the <strong>real value</strong> (300 milliseconds, 20 bytes) for how much time/space a program uses.</p>
+<p>We don’t care about if Python performs a bit better than Javascript when searching arrays (I have no idea if this is true), as we don’t care about <strong>real numbers</strong> for the purpose of analysis.</p>
+<p><img src="./page-resources/computer-science-telescopes.jpg" alt="computer science astronomy telescopes"></p>
+<p>As a working software engineer evaluating real-world performance of your systems you absolutely will care about real numbers. But for an ideal, apples-to-apples comparison of <strong>algorithms</strong> — different ways to write a program to solve a problem – we don’t care.</p>
+<p>Today we are <em>computer scientists</em> – tomorrow we will be <em>software engineers.</em> With that, let’s carry on!</p>
+<h2>Space complexity</h2>
+<p>This is analyzing how much memory a program uses when it runs. <strong>You generally will be not asked about space complexity in technical interviews</strong>, and, generally speaking, people focus more on <strong>time complexity.</strong></p>
+<p>This is what we will do in this course. However space complexity is an important concept, and, if it does come up in a technical interview, it will probably be about <strong>in-array replacement</strong> – modifying an array without creating a copy – versus creating additional variables. Let’s look at that now.</p>
+<h3>Doubling each element in an array</h3>
+<h4>Question: Can someone remind me of how an Array works in computer memory?</h4>
+<p>Remembering what we have learned about arrays, let’s look at a common problem:</p>
+<p>Given an array of integers of some arbitrary length <em>n</em>, such as <code>[1, 0, 14, 25, 3]</code> (where <em>n = 5</em> since the length of the array is 5), write a program to double the value of each element in the array.</p>
+<p>Before we get started …</p>
+<h4>Question: How much space does an array of <em>n</em> integers take up?</h4>
+<h4>Answer: How to estimate and make stuff up like a programmer</h4>
+<p>A great tool is to <strong>make assumptions.</strong></p>
+<p>Let’s pretend that an integer takes up 1 byte (8 bits, such as <code>00010001</code> or <code>10101111</code> or <code>00001111</code>) of space. Let’s also assume (the fancy word for “pretend”) that we are not going to worry about fixed array sizes - an array of length 3 takes up 3 bytes of space, an array of length 3 million takes up 3 million bytes (3 megabytes) of space (<a href="https://web.archive.org/web/20230929202158/https://cup-of-char.com/exploring-the-powers-of-2/">computers love powers of two</a>).</p>
+<p>So our array of length <em>n</em> will always take up <em>n</em> bytes of space. Our program’s space complexity can never get any smaller than that.</p>
+<h3>Solution A: Using Additional Variables</h3>
+<p>Here is one way to solve that problem:</p>
+<pre><code class="language-python">def double_elements_new_array(arr):
+    doubled = []
+    for num in arr:
+        doubled.append(num * 2)
+    return doubled
+
+# Example usage:
+arr = [1, 2, 3, 4, 5]
+print(double_elements_new_array(arr))
+</code></pre>
+<p>Remember - <strong>we don’t care about the details</strong>. We don’t care if in reality the Python interpreter needs to allocate <em>x</em> bytes of data every time a function is defined or a <code>for ... in</code> loop is used (I have no idea).</p>
+<p>We care about the <strong>ideal, abstracted</strong> space complexity of our program. There is an array. It takes up space.</p>
+<h4>Question: What is the space complexity of the above solution?</h4>
+<h4>Answer: 2 * n</h4>
+<p>Our array is length <em>n</em>. Each element <em>i</em> in the array takes up 1 byte. An array of length 5 takes 5 bytes. Our program implementation <strong>creates a new array</strong> and for each element <em>i</em> in the array, <strong>doubles and inserts that element into the new array</strong>.</p>
+<p>So we have <strong>two</strong> arrays of the same length:</p>
+<pre><code class="language-python">arr = [0, 1, 2, 3]
+doubled_arr = [0, 2, 4, 6]
+</code></pre>
+<h4>Question: Does the size of a specific integer matter?</h4>
+<h4>Answer: No. Why not?</h4>
+<p><em>Because for the purposes of complexity analysis we have <strong>made the assumption</strong> that the computer always allocates 8 bytes for any integer and that that is the max amount of space an integer can take up.</em></p>
+<h3>Solution B: Solving in-place</h3>
+<p>Let’s pretend you were asked this question during a technical interview. You solved it as above. Now, your interviewer says:</p>
+<p><strong>&quot;Great job! Can you improve the runtime perfomance, specifically w/regards space efficiency, of this program at all? Or is this the most efficient version of this program possible.</strong></p>
+<p>As you may already know, and we are about to learn – we can!</p>
+<h4>Question: How can we make this program use less memory (take up less space)?</h4>
+<h4>Answer: Modify the array in-place</h4>
+<p>Here is a solution which does <strong>not</strong> create a new array or make copies. It modifies the value of each element of the array <strong>in-place</strong>, inside the array:</p>
+<pre><code class="language-python">def double_elements_in_place(arr):
+    for i in range(len(arr)):
+        arr[i] = arr[i] * 2
+    return arr
+
+# Example usage:
+arr = [1, 2, 3, 4, 5]
+print(double_elements_in_place(arr))
+</code></pre>
+<h4>Question: What is the space complexity of this solution?</h4>
+<h4>Answer</h4>
+<p>How much space does our new version of the “double the value of every integer in an array of length <em>n</em>” take up?</p>
+<p>The answer is – <strong>n bytes</strong>, as our assumption is that each integer element <em>i</em> takes up 1 byte (examples: <code>00000000</code> or <code>00000001</code>) of space.</p>
+<p>Now your interviewer asks …</p>
+<h4>Question: “Is this the most efficient implementation of this algorithm, with regards to space complexity?”</h4>
+<p>Yes - it is. Can we make this program take up any less space? No – we cannot.</p>
+<h3>Space Complexity - Summary</h3>
+<ul>
+<li>We will not return to space complexity very often, but, it is valuable to have a basic understanding of it.</li>
+<li>Be prepared to know how to modify an array <strong>in-place</strong> for technical interview or coding challenge problems.</li>
+</ul>
+<h2>Time Complexity</h2>
+<p>Time complexity analysis is more common in technical interviews and will be our main focus in this module.</p>
+<h3>Assumptions - all operations are equal</h3>
+<p>Just like we made assumptions when evaluating space complexity, we normally do the same thing here. We are interested in comparing the efficiency of our <strong>algorithms</strong> - programs run by imaginary computers.</p>
+<h4>Things we don’t care about</h4>
+<ul>
+<li>How many nanoseconds it actually takes a real computer, using a real program language, to add 2 + 2, or duplicate a string, or calculate a square root, etc.</li>
+<li>All the stuff that’s not a core part of the algorithm - initializing variables, creating an empty list, etc. We don’t care how much time that stuff takes and ignore it.</li>
+<li>Multiple operations: <code>x = x * 3 + 2 / 4</code> we count as one “step”, the same as <code>x = x + 2</code></li>
+</ul>
+<h4>Things we do care about</h4>
+<ul>
+<li>The operation occuring the most - usually in a loop.</li>
+<li>How often this happens.</li>
+</ul>
+<h3>Time Complexity: Doubling each element in an array</h3>
+<p>Let’s look at both our previous implementations:</p>
+<p><em>Space-inefficient solution:</em></p>
+<pre><code class="language-python">def double_elements_new_array(arr):
+    doubled = []
+    for num in arr:
+        doubled.append(num * 2)
+    return doubled
+
+# Example usage:
+arr = [1, 2, 3, 4, 5]
+print(double_elements_new_array(arr))
+</code></pre>
+<p><em>Space-efficient solution:</em></p>
+<pre><code class="language-python">def double_elements_in_place(arr):
+    for i in range(len(arr)):
+        arr[i] = arr[i] * 2
+    return arr
+
+# Example usage:
+arr = [1, 2, 3, 4, 5]
+print(double_elements_in_place(arr))
+</code></pre>
+<h4>Question: How many steps does each algorithm take for an array of length n?</h4>
+<p>If our input is <code>[1, 2, 3, 4, 5]</code> how many steps does each algorithm take?</p>
+<h4>How to Find the Answer</h4>
+<h5>1. What gets bigger when our input (array length, <em>n</em>) gets bigger?</h5>
+<p><em>The loop!</em></p>
+<h5>2. What happens inside the loop?</h5>
+<p>Something. an operation. We don’t care. We abstract it all so that we count one “step” for each element in the array.</p>
+<h5>3. So, how long does it take for an array of length 5?</h5>
+<p>Well, the <code>for</code> loop iterates over every element in the array, so … it takes 5 “steps”. Or – <em>n</em> (length of array).</p>
+<p>So – <strong>does one implementation have a more efficient time complexity than the other?</strong></p>
+<p><strong>No</strong> - they are the same.</p>
+<h3>Tradeoffs</h3>
+<p>It is not uncommon to trade <em>space for time</em> in an algorithm, or vice versa. A python dictionary might take up more space than a list, but it is faster to find something in the dictionary - if you know the key.</p>
+<p>As we learn more about complexity analysis and Big-O we will learn that even for runtime complexity - time complexity - there are tradeoffs to be made between how long <em>searching</em> vs <em>sorting</em> vs <em>inserting</em> are.</p>
+<h3>Time Complexity: Contains Duplicate</h3>
+<p>A more interesting problem to examine time complexity is:</p>
+<p>Given an array <em>arr</em> of integers of length <em>n</em>, write a program that will return <code>True</code> if any one element <em>el</em> is a duplicate of any other element, and return <code>False</code> if each element <em>el</em> in the array is unique.</p>
+<p>Before we get started …</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4>Question: How long does it take to print every element in the array, printing each element twice?</h4>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4>Answer - <em>n</em></h4>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>For our array (such as [3,4,0,5,2] with length 5 so <em>n=5</em>) of length <em>n</em> it takes <em>n</em> steps to iterate through the array and print out each item. This implementation:</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <pre><code class="language-python">def print_elements_twice(arr):
+    for num in arr:
+        print(num)
+        print(num)
+
+# Example usage:
+arr = [9, 8, 7, 6, 5]
+print(print_elements_twice(arr))
+</code></pre>
+<p>… this implementation takes <em>n</em> steps - we count both print statements as a single step. Soon we will discuss why in more depth.</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Back to our problem!</p>
+<h3>Solution A: Naive Approach</h3>
+<pre><code class="language-python">def contains_duplicate_naive(arr):
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] == arr[j]:
+                return True
+    return False
+
+# Example usage:
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1]
+print(contains_duplicate_naive(arr))  # True
+</code></pre>
+<h4>Question: What is the time complexity of this algorithm?</h4>
+<p>How many steps does this algorithm take to run for an input of size 11 (array of length 11)? Such as:</p>
+<pre><code class="language-python">arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1] #length 11 
+</code></pre>
+<p><strong>Important</strong> - remember, we care about the <strong>worst case</strong> performance.</p>
+<p>We <strong>don’t</strong> care about the “best case” scenario, which might look like:</p>
+<pre><code class="language-python">arr = [1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] #length 11 
+</code></pre>
+<p>The algorithm would only take two steps to find the duplicate for the above input. But we want to know <strong>worst case performance</strong> - because once we know that, we know all other inputs for our algorithm will perform better than our worst case!</p>
+<p>So - how many steps for our worst case input (which is the first example input, with <code>1</code> as the first, and the last, element in the array)?</p>
+<h4>Answer: Use a simple example and manually “count” the steps</h4>
+<p>Let’s simplify!! Let’s use a smaller array.</p>
+<h5>How to choose good “test” data</h5>
+<ol>
+<li>Small enough to think about and manually step through on paper.</li>
+<li>Do your best to have it be your “worst-case” scenario.</li>
+<li>Big enough to be useful</li>
+</ol>
+<p>How about …</p>
+<pre><code class="language-python">arr = [1, 2, 3, 1]
+</code></pre>
+<p>That is big enough to be useful but small enough to easily think through. Lets manually step thru the implementation of our algorithm.  We will focus on the part that matters for runtine analysis - the loop! We know the outer for loop goes through each element of the array, so lets start there.</p>
+<p><em>look in the code comments to manually step thru</em></p>
+<p><strong>NOTE – we could also use the <a href="https://code.visualstudio.com/docs/editor/debugging">VS Code Debugger</a> to do this</strong></p>
+<p>Remember, <code>arr = [1, 2, 3, 1]</code></p>
+<h5>i = 0, j = 1</h5>
+<pre><code class="language-python"># arr = [1, 2, 3, 1]
+
+for i in range(len(arr)):            # i = 0 
+    for j in range(i+1, len(arr)):   # j = 2 
+        if arr[i] == arr[j]:         # arr[0] == arr[1] --&gt; 1 == 2 --&gt; False
+            return True              # Does not return True, inner loop iterates
+return False
+
+</code></pre>
+<h5>i = 0, j = 2</h5>
+<pre><code class="language-python"># arr = [1, 2, 3, 1]
+
+for i in range(len(arr)):           # i = 0
+    for j in range(i+1, len(arr)):  # j = 2 
+        if arr[i] == arr[j]:        # arr[0] == arr[2] --&gt; 1 == 3 --&gt; False
+            return True             # Does not return True, inner loop iterates
+return False
+</code></pre>
+<h5>i = 0, j = 3</h5>
+<pre><code class="language-python"># arr = [1, 2, 3, 1]
+
+for i in range(len(arr)):           # i = 0
+    for j in range(i+1, len(arr)):  # j = 3 
+        if arr[i] == arr[j]:        # arr[0] == arr[3] --&gt; 1 == 1 --&gt; True
+            return True             # returns True, exits all loops. Program returns True
+return False
+</code></pre>
+<p>How many steps was this? 3.</p>
+<h4>Question: Was our “sample data” the worst-case scenario?</h4>
+<h4>Answer: NO!</h4>
+<p>Why not?</p>
+<p><code>arr = [1, 2, 3, 1]</code> is not our worst case scenario, and we know why because - <strong>the outer for loop never iterated</strong>. The first element was the same as the last, so our program didn’t need to! What would our worst case be?</p>
+<p>Our worst case data looks like:</p>
+<pre><code class="language-python">arr = [1, 2, 3, 3]
+</code></pre>
+<p>Why is this worst case? <strong>Because the program has to loop through all the way to the end</strong> to find the duplicate.</p>
+<p>How many steps would this take?</p>
+<p>Well …</p>
+<pre><code class="language-python"># arr = [1, 2, 3, 3]
+
+for i in range(len(arr)):           # for our worst case we know our outer loop has to iterate to the 3rd element
+    for j in range(i+1, len(arr)):  # we know from counting through our previous scenario this loop is 3 steps each time because
+        if arr[i] == arr[j]:        
+            return True             
+return False
+</code></pre>
+<p>The outer loop iterates 3 times. Each time the outer loop iterates, the inner loop iterates 4 steps – <strong>except</strong> the very last time, where we are at the very last elements of the array and comparing <code>arr[2] == arr[3] --&gt; 3 == 3 --&gt; True</code>.</p>
+<p>So 2 * 4 + 1.</p>
+<p>If we wanted to simplify …</p>
+<p>3 * 4 --&gt; the four steps of the inner loop times each outer loop.</p>
+<p>Now, this is <strong>more</strong> than the actual number of steps, but again - <strong>we don’t care about real number</strong>. We just want to know <strong>approximately</strong> what our worst-case runtime perfomance is.</p>
+<p>Which is, for an input of size 4, twelve (12) steps – three times four (3 * 4)</p>
+<p>To express it mathematically, for input size <code>n</code> our runtime performance is: `(n - 1) * n``</p>
+<p>Which simplifies to …</p>
+<p>`n^2 - n``</p>
+<p>Which in the spirit of approximation we can call just n^2</p>
+<h4>Why can we approximate?</h4>
+<p>Why did we just turn `(n - 1) * n into n^2``  ? Well …</p>
+<p>Imagine an array of size one million - 1,000,000 - not unrealistic, if, say, you are writing a program for the U.S. Census or to send out monthly billing information to all Netflix users.</p>
+<p>Well with an array that big …</p>
+<pre><code>(1,000,000 - 1) * 1,000,000
+
+simplifies to ...
+
+1,000,000^2 - 1,000,000
+</code></pre>
+<p>… or in plain language one million squared minus one million. Which is …</p>
+<p>Too many zeros to write. But, one trillion or <code>1 * 10^12</code> (one times ten raised to the twelfth power) in scientific notation.</p>
+<p>FYI in scientific notation one million is <code>1 * 10^6</code></p>
+<p>And a trillion minus a million is … nine hundred ninety-nine billion nine hundred ninety-nine million.</p>
+<p><strong>Which is basically 1 trillion. Which is our input size, squared, aka n^2 (one million squared). Once the numbers get that big - we don’t care about anything but the biggest value raised to the highest power</strong>.</p>
+<p>If I’m designing this program - I don’t need the exact number - I just need to know the <strong>scale</strong> – bigger than a cardboard box but smaller than a shipping container.</p>
+<p>Which is why for purposes of <em>complexity analysis</em>, we usually start with worst-case performance and are only intersted in the <strong>order of magnitude.</strong></p>
+<p>This is called <strong>Big O</strong> – and we will talk about it soon. But first lets look at a more efficient solution to our problem.</p>
+<h3>Solution B: Sorting the data first</h3>
+<p>There are many ways to make a more efficient algorithm. This particular approach <strong>sorts</strong> our data first, which is a common technique.</p>
+<p>As we saw, our <strong>worst-case scenario</strong> is when the duplicate is <strong>at the end</strong>. Sorting means - <strong>this happens a lot less</strong>. It would only happen for an input where the dupe is the highest value.</p>
+<pre><code class="language-python"># even sorted this is a worst case scenario
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 8] 
+
+# a better case scenario
+unsorted_arr = [2, 3, 1, 4, 5, 6, 8, 3]
+sorted_arr   = [1, 2, 3, 3, 4, 5, 6, 8] # sorting means we find the duplicate much sooner.
+</code></pre>
+<p>Now – <strong>how long does the sorting take</strong>? Well, we use Python’s built in sort method:</p>
+<pre><code class="language-python">def contains_duplicate_sort(arr):
+    arr.sort()
+    for i in range(1, len(arr)):
+        if arr[i] == arr[i-1]:
+            return True
+    return False
+
+# Example usage:
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1]
+print(contains_duplicate_sort(arr))  # True
+</code></pre>
+<p>For now let’s just declare that the sorting takes <code>s</code> steps, and that <code>s &lt; n</code>. It doesn’t take as long to sort the array as it does to iterate through the whole thing. Our time complexity is then: <code>s * n</code> – how long it took to sort, times the length of the array, as we know that with a sorted array we’ll only have to loop through it once to find the dupe and there’s no nested array anymore.</p>
+<p>We will dig into this more soon - when we talk about … Big O!</p>
+
+            </section>
+    
+
+
+    </div>
+
+
+  </div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/menu/menu.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chalkboard/plugin.js"></script>
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      RevealChalkboard, 
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				RevealMenu, 
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				RevealCustomControls, 
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: false,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+      chalkboard: { // font-awesome.min.css must be available
+        //src: "chalkboard/chalkboard.json",
+        storage: "chalkboard-demo",
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						,
+      {
+        icon: '<i class="fa fa-pen-square"></i>',
+        title: 'Toggle chalkboard (B)',
+        action: 'RevealChalkboard.toggleChalkboard();'
+      },
+      {
+        icon: '<i class="fa fa-pen"></i>',
+        title: 'Toggle notes canvas (C)',
+        action: 'RevealChalkboard.toggleNotesCanvas();'
+      }
+      
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+</body>
+
+</html>

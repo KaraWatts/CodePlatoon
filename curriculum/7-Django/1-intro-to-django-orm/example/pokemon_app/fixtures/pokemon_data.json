@@ -1,0 +1,10 @@
+[
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 1,
+  "fields": {
+    "name": "Pikachu",
+    "level": 12
+  }
+}
+]

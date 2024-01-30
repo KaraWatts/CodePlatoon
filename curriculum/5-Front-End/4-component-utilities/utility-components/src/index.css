@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .text-red {
+    color: red;
+} */
+
+#root{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+

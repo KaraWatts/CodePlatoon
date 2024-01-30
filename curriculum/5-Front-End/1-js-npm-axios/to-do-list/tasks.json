@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "task": "Create a sample task.json file",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "task": "Build a simple To-Do app using Node.js",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "task": "Add the ability to mark tasks as complete",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "task": "Implement task deletion functionality",
+    "completed": true
+  },
+  {
+    "id": 5,
+    "task": "Style the To-Do app with CSS",
+    "completed": false
+  },
+  {
+    "id": 6,
+    "task": "Write documentation for the To-Do app",
+    "completed": false
+  },
+  {
+    "id": 7,
+    "task": "Test the To-Do app for bugs and issues",
+    "completed": false
+  }
+]

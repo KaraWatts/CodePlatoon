@@ -1,0 +1,62 @@
+[
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 1,
+  "fields": {
+    "name": "Pikachu",
+    "level": 12,
+    "date_encountered": "2008-01-01",
+    "date_captured": "2023-08-22T15:05:52.618Z",
+    "description": "Unknown",
+    "captured": true,
+    "type": "normal",
+    "moves": []
+  }
+},
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 2,
+  "fields": {
+    "name": "Charizard",
+    "level": 25,
+    "date_encountered": "2007-04-07",
+    "date_captured": "2023-08-22T15:09:14.356Z",
+    "description": "Unknown",
+    "captured": true,
+    "type": "normal",
+    "moves": []
+  }
+},
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 3,
+  "fields": {
+    "name": "Blastoise",
+    "level": 37,
+    "date_encountered": "2008-01-01",
+    "date_captured": "2023-08-22T15:28:54.699Z",
+    "description": "Unknown",
+    "captured": false,
+    "type": "normal",
+    "moves": [
+      1
+    ]
+  }
+},
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 4,
+  "fields": {
+    "name": "Eevee",
+    "level": 25,
+    "date_encountered": "2008-01-01",
+    "date_captured": "2023-08-23T21:09:03.605Z",
+    "description": "Unknown",
+    "captured": false,
+    "type": "normal",
+    "moves": [
+      1
+    ]
+  }
+}
+]

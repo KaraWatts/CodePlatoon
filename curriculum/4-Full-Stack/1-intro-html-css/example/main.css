@@ -1,0 +1,44 @@
+#container {
+    border: 5px solid brown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+}
+.row {
+    border: 3px solid blue;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.box {
+    border: 1px solid blueviolet;
+    width: 30px;
+    height: 30px;
+}
+/* body {
+  background-color: cyan;
+}
+p {
+  text-decoration: underline;
+}
+a {
+  text-decoration: line-through;
+  color: gold;
+}
+#homelink {
+  font-size: 20px;
+}
+#theP {
+  background-color: blueviolet;
+}
+.oddp {
+  background-color: brown;
+  text-decoration: none;
+}
+h1{
+    font-size: 30px;
+} */

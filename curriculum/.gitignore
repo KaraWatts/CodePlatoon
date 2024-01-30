@@ -1,0 +1,8 @@
+.vscode
+# general file name for showing examples
+scratchpad.*
+.DS_Store
+node_modules
+__pycache__
+# general convention for naming python virtual env
+*-venv

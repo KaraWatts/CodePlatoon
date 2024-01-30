@@ -1,0 +1,12 @@
+[
+{
+  "model": "move_app.move",
+  "pk": 1,
+  "fields": {
+    "name": "Psychich",
+    "accuracy": 70,
+    "pp": 20,
+    "power": 80
+  }
+}
+]
