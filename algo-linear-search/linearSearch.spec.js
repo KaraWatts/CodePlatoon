@@ -12,6 +12,14 @@ describe("tests linearSearch", () => {
   test("linearSearch(4, [1, 2, 3]) === undefined", () => {
     expect(linearSearch(4, [1, 2, 3])).toBe(undefined);
   });
+
+  test("linearSearch('a' [1, 'a', 3, 4, 'z']) === 1", () => {
+    expect(linearSearch('a', [1, 'a', 3, 4, 'z'])).toBe(1);
+  });
+
+  test("linearSearch('a', [1, 2, 3]) === undefined", () => {
+    expect(linearSearch("a", [1, 2, 3])).toBe(undefined);
+  });
 });
 
 describe("tests globalLinearSearch", () => {
@@ -25,5 +33,13 @@ describe("tests globalLinearSearch", () => {
 
   test("globalLinearSearch('n', 'bananas'.split('')) === [2, 4]", () => {
     expect(globalLinearSearch("n", "bananas".split(""))).toEqual([2, 4]);
+  });
+
+  test("globalLinearSearch('3', [2,3,5,6,3]) === [1, 4]", () => {
+    expect(globalLinearSearch(3, [2,3,5,6,3])).toEqual([1, 4]);
+  });
+
+  test("globalLinearSearch('z', 'bananas'.split('')) === undefined", () => {
+    expect(globalLinearSearch("z", "bananas".split(""))).toEqual(undefined);
   });
 });
