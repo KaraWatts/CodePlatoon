@@ -1,3 +1,8 @@
+/**
+ * Give nth number in the fibonacci sequence
+ * @param {int} num
+ * @returns {int}
+ */
 function fibonacci(num) {
     if (num <= 1){
         return num
