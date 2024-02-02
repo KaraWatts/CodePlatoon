@@ -18,6 +18,9 @@ def test_add_float():
    # Add more functional tests for subtract, multiply, and divide
 
 def test_too_few_args():
+    # subprocess.run runs the list of arguments through a test terminal
+    # capture_output = TRUE saves the output of the argments as stdout and stderr
+    # text = TRUE captures the output as a string
     result = subprocess.run(["python3" ,"calculator.py", '10', "divide"], text=True, capture_output=True)
     assert result.stdout == "Usage: calculator.py <num1> <num2> <operation>\n"
 
