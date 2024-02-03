@@ -6,7 +6,7 @@ function createArrayOfNum(maxValue) {
 }
 
 console.log(createArrayOfNum(8));
-console.log(createArrayOfNum2(8));
+// console.log(createArrayOfNum2(8));
 
 console.log(shallowEqualArrays(arm.findArmstrongNumbers([0]), [0]));
 console.log(
