@@ -1,0 +1,2 @@
+exports.creditCheck = function(str) {
+}
