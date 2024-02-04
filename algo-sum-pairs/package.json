@@ -1,0 +1,14 @@
+{
+  "name": "algo-sum-pairs",
+  "version": "1.0.0",
+  "description": "Before writing your code, don't forget to write your tests!!",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
