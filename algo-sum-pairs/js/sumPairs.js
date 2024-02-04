@@ -1,16 +1,12 @@
-exports.sumPairs = function (numArray, targetSum) {
+sumPairs = function (numArray, targetSum) {
   let pairsArray = [];
 
-  let index = 0;
-  for (let i = 0; i < numArray.length; i += 1) {
-    if (i === numArray.length) {
-      index += 1;
-      i = index;
-      continue;
-    }
-    const sum = numArray[i] + numArray[i + 1];
-    if (sum === targetSum) {
-      pairsArray.push([numArray[i], numArray[i + 1]]);
+
+  for (let i = 0; i <= numArray.length; i += 1) {
+    for (let j = i + 1; j < numArray.length; j += 1){
+      if (numArray[i] + numArray[j] === targetSum) {
+        pairsArray.push([numArray[i], numArray[j]]);
+      }
     }
   }
 
@@ -20,4 +16,6 @@ exports.sumPairs = function (numArray, targetSum) {
   return pairsArray;
 };
 
-console.log(this.sumPairs([1, 2, 3, 4, 5], 9));
+
+console.log(sumPairs([1,2,3,4,5], 7))
+module.exports = sumPairs
