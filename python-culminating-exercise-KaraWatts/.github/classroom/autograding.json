@@ -1,0 +1,151 @@
+{
+    "tests": [
+      {
+        "name": "test 1",
+        "setup": "",
+        "run": "pytest tests/test_one.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },
+      {
+        "name": "test 2",
+        "setup": "",
+        "run": "pytest tests/test_two.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 3",
+        "setup": "",
+        "run": "pytest tests/test_three.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 4",
+        "setup": "",
+        "run": "pytest tests/test_four.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 5",
+        "setup": "",
+        "run": "pytest tests/test_five.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 6",
+        "setup": "",
+        "run": "pytest tests/test_six.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 7",
+        "setup": "",
+        "run": "pytest tests/test_seven.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 8",
+        "setup": "",
+        "run": "pytest tests/test_eight.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 9",
+        "setup": "",
+        "run": "pytest tests/test_nine.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 1",
+        "setup": "",
+        "run": "pytest tests/test_one.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 10",
+        "setup": "",
+        "run": "pytest tests/test_ten.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 11",
+        "setup": "",
+        "run": "pytest tests/test_eleven.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 12",
+        "setup": "",
+        "run": "pytest tests/test_twelve.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 13",
+        "setup": "",
+        "run": "pytest tests/test_thirteen.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },{
+        "name": "test 14",
+        "setup": "",
+        "run": "pytest tests/test_fourteen.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      },
+      {
+        "name": "test 15",
+        "setup": "",
+        "run": "pytest tests/test_fifteen.py",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 4,
+        "points": 1
+      }
+    ]
+  }
