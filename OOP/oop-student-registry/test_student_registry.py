@@ -1,4 +1,5 @@
 import pytest
+
 from student_registry import Student
 
 def test_student_initialization():
@@ -38,3 +39,21 @@ def test_invalid_grade_setter():
     assert student.get_grade == "12th"
 
 # Write tests for Class methods
+
+def test_string_printout(capsys):
+    student = Student('Alice')
+    print(student)
+    captured = capsys.readouterr()
+    assert captured.out == "Student 1: Name: Alice, Age: 13, Grade: 12th\n"
+
+def test_successful_advance_default():
+    student = Student('Alice', grade = '11th')
+    assert student.advance() == "Alice has advanced to the 12th grade"
+    
+def test_study_subject():
+    student = Student('Alice')
+    assert student.study("Pizza") == "Alice is studying Pizza"
+
+def test_advance_to_graduation():
+    student = Student('Alice')
+    assert student.advance() == "Alice has Graduated 🎉"
