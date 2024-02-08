@@ -1,4 +1,4 @@
-import re
+import json
 
 
 class CarManager:
@@ -29,13 +29,23 @@ class CarManager:
                 CarManager.check_int(input(f"Enter {Variable}: "), Variable)
 
     @classmethod
-    def check_owners(cls, name):
-        if name == 'quit':
-            return False
-        elif name not in cls.all_cars:
-            print("Name not found")
-            CarManager.check_owners(input("Please enter owner to search in First_Last format: "))
-        return True
+    def check_owners(cls, name = None):
+        if name == None:
+            name = input("Please enter owner to search in First_Last format: ").lower()
+        
+        
+        if name not in cls.all_cars:
+            response = input(f"Name not in found in Directory:\n1. Try again\n2. Create new owner account\n3. Quit\n")
+            match response:
+                 case '1':
+                    return cls.check_owners()
+                 case '2':
+                      return False
+                 case '3':
+                      return None
+        else: 
+             return name
+    
     @staticmethod
     def check_year(new_year):
         if len(str(new_year)) == 4:
@@ -44,22 +54,38 @@ class CarManager:
             print(('Invalid year: enter year in the yyyy format'))
             CarManager.check_year(input(f"Enter year: "))
 
+    #Class Manipulation Methods
     @classmethod
-    def add_car(cls):
-        owner_name = input("Enter name in First_Last format: ").lower()
+    def create_car(cls):
+        owner_name = input("Please enter owner to search in First_Last format: ").lower()
         new_make = input("Enter make: ").lower() 
         new_model = input("Enter model: ").lower()
-        new_year = cls.check_int(input("Enter year: "), "year")
+        new_year = cls.check_year(input("Enter year: "))
         new_mileage = cls.check_int(input("Enter Mileage: "), "Mileage")
-        
+
         new_car = cls(new_make, new_model, new_year, new_mileage)
+
+        return [owner_name, new_car]
+        
+    @classmethod
+    def add_car(cls):
+        owner_name, new_car = cls.create_car()
+        verified_name = cls.check_owners(owner_name)
+        match verified_name:
+            case False:
+                cls.all_cars[owner_name] = [new_car]
+            case None:
+                  return None
+            case _:
+                cls.all_cars[verified_name].append(new_car)
        
-        cls.all_cars[owner_name] = new_car
+        
         
     @classmethod   
     def view_all_cars(cls):
-        for car in cls.all_cars:
-             print(car, cls.all_cars[car])
+        for owner_name, cars in cls.all_cars.items():
+            for car in cars:
+                print(owner_name.title(), car)
         
     @classmethod
     def view_num_cars(cls):
@@ -67,47 +93,45 @@ class CarManager:
          
     @classmethod
     def see_car_details(cls):
-        owner_search = input("Please enter owner to search in First_Last format: ").lower()
-        print(cls.all_cars[owner_search])
+        owner_name = cls.check_owners()
+        for car in cls.all_cars[owner_name]:
+                print(owner_name.title(), car)
       
     @classmethod
     def car_service(cls):
-        owner_name = input("Enter owner name in First_last format: ").lower()
-        if cls.check_owners(owner_name):
+        owner_name = cls.check_owners()
+        if owner_name:
+            # get list of all cars associated with the owner
+            cars = cls.all_cars[owner_name]
+
+            #print all cars associated with the owner
+            print(f"Cars owned by {owner_name}:")
+            for index, car in enumerate(cars, start=1):
+                print(f"{index}. {car}")  
+            
+            # Prompt the user to select a car for service
+            car_index = input("Select car to be serviced: ")
+
+            try:
+                car_index = int(car_index)
+                selected_car = cars[car_index - 1]  # Adjust index to match list indexing
+            except (ValueError, IndexError):
+                print("Invalid selection. Please enter a valid car number.")
+                return
+            
             service = input("Enter all services: ")
-            cls.all_cars[owner_name]._services = service
-            return None
-    
+            selected_car._services = service
         
     @classmethod
     def update_mileage(cls):
-        owner_name = input("Enter owner name in First_last format: ").lower()
-        mileage = input("Enter mileage: ")
-        if cls.check_int(mileage):
-            if mileage > cls.all_cars[owner_name]._mileage:
-                cls.all_cars[owner_name]._mileage = mileage
-               
-        else:
-            print("Mileage must be a number and contain no decimals")
-            cls.update_mileage()
-            
-        
+        owner_name = cls.check_owners()
+        if owner_name:
+            mileage = int(input("Enter mileage: "))
+            if cls.check_int(mileage, 'Mileage') and mileage > cls.all_cars[owner_name]._mileage:
+                    cls.all_cars[owner_name]._mileage = mileage
+            else:
+                print(f"You cannot dial back your odometer reading. Return value higher than {cls.all_cars[owner_name]._mileage}")
+                cls.update_mileage()
+
+
     
-
-
-
-        
-
-# action = input("Please enter what you would like to do. Add a car - enter 'Add' | View all cars - enter 'View all' | View total number of car - enter 'View num' | See a car's details - enter 'See car'. : ")
-# if action == "Add":
-#     owner_car = input("Please enter owner name: ")  
-#     owner_name =  re.sub(r"\s", '_', owner_car)
-#     new_make, new_model, new_year = input("Enter make: "), input("Enter model: "), input("Enter year: ")
-#     new_car = CarManager(new_make, new_model, new_year)
-#     new_car.add_car()
-#     print(CarManager.view_all_cars())
-#     action
-# print(CarManager.terminal_menu())
-
-
-# car1 = CarManager()

@@ -39,7 +39,7 @@ def menu_actions(input):
             CarManager.update_mileage()
             car_manager_menu()
         case "7":
-            return 'Goodbye'
+            return "Goodbye"
         case _:
             print('Not a valid option')
             car_manager_menu()
