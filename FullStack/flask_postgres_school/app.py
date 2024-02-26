@@ -22,9 +22,8 @@ class Teacher(db.Model):
     first_name = db.Column(db.String(100))
     last_name = db.Column(db.String(100))
     age = db.Column(db.Integer)
-    subject = db.Column(db.Integer, db.ForeignKey('subjects.id'))
-    subject_name = db.relationship("Subject", backref=db.backref('teacherss
-    dock'))
+    subject = db.Column(db.Integer, db.ForeignKey('subjects.id'), nullable=False)
+    subject_name = db.relationship('Subject', backref=db.backref('teachers'))
 
 
 class Subject(db.Model):
