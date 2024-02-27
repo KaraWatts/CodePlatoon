@@ -1,0 +1,71 @@
+body {
+/* background-color: black; */
+color: limegreen;
+background-image: url(https://www.lifespan.io/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2018/05/shutterstock_521908741-e1525257648205-1814x2048.jpg.webp);
+background-size: 10%;
+
+}
+
+div {
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#title {
+    font-family: "VT323";
+    text-align: center;
+    font-size: 24pt;
+}
+
+#terminal {
+    width: 75%;
+    height: 150px;
+    font-family: "Ubuntu Mono";
+    font-size: 16pt;
+    text-align: left;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    border: 4px rgb(43,49,39) solid;
+    
+    
+}
+
+p {
+    /* text-indent: -32px;
+    margin-left: 32px;
+    margin-top: auto; */
+    width: 100%;
+    overflow: hidden;
+    border-right: .15em solid limegreen;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {width: 0}
+    to {width: 100%}
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent}
+    50% {border-color: limegreen}
+}
+#enter {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    padding-left: 70%;
+
+}
+
+input {
+   width: 150px;   
+}
