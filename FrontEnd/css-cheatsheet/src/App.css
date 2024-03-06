@@ -1,0 +1,35 @@
+body {
+  margin: 0px;
+}
+
+.box {
+  border: 2px solid black;
+  padding: 2px;
+  width: 10px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.relativebox {
+  border: 2px solid black;
+  padding: 2px;
+  width: 25px;
+  /* display: block; */
+  margin: 10px;
+  position: relative;
+}
+
+.absolutebox {
+  border: 2px solid black;
+  padding: 2px;
+  /* display: block; */
+  margin: 10px;
+  /* absolute wil position the object absolutely relative to it's containing block - if no blocks are listed as relative then the default is to set it relative to the page - if the parent is listed as relative then the absolute object will be contained within the relative box */
+  position: absolute; 
+}
+
+.boxContainer {
+  border: 4px dashed red;
+  display: block;
+  width: 100px;
+}
