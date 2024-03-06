@@ -16,7 +16,7 @@ function App() {
   function startGame() {
     setInterval(() => {
       setDens(getDensState())
-    }, 1500)
+    }, 100)
   }
 
   function getDensState() {
@@ -26,16 +26,16 @@ function App() {
       }
     })
   }
-
+// console.log(getDensState())
   function onMoleWhacked() {
     setPoints(points + 1)
   }
 
   // renders
   const denElements = dens.map((den, index) => {
-    return (
-      <Mole key={`mole-${index}`} />
-    )
+      return (
+        <Mole key={`mole-${index}`} popUp={den.isMoleVisible} onClick={onMoleWhacked}/>
+      )
   })
 
   return (
