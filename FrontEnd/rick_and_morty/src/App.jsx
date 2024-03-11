@@ -8,15 +8,24 @@ import Col from "react-bootstrap/Col";
 function App() {
   return (
     <div>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar
+        bg="dark"
+        data-bs-theme="dark"
+        className="justify-content-evenly flex-grow-1"
+      >
         <Row>
           <Col>
             <Navbar.Brand>
-              <Link to="/" style={
-                {paddingLeft: "10px",
+              <Link
+                to="/"
+                style={{
+                  paddingLeft: "10px",
                   color: "White",
-                textDecoration: "none"}
-                }>R&M Wiki</Link>
+                  textDecoration: "none",
+                }}
+              >
+                R&M Wiki
+              </Link>
             </Navbar.Brand>
           </Col>
           <Col className="me-auto">
