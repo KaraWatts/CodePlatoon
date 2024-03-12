@@ -57,10 +57,23 @@ Currently there is only  one store, so, don't worry about multiple locations (ye
 
 ## Stage 2
 
-Exciting news! 32 Flavors has opened up a second, and a third, location! Two of them are even in the same state, and, since the employees seem to be able to move very, very quickly (almost as if they're somehow flying) from Point A to Point B, several of them are now working at multiple stores.
+Exciting news! 32 Flavors has opened up a second, and a third, location! Two of them are even in the same state, and, since the employees seem to be able to move very, very quickly (almost as if they're somehow flying) from Point A to Point B, **several of them are now working at multiple stores**. Model this using what you've learned about constraints and relationships.
 
 ## Stage 3
 
 Mr. Bumbledore wants to institute a Customer Loyalty program, where customers who buy a certain amount of ice cream get a special prize.
 
 Also, with all these stores, he's begun promoting some employees to be store managers. He wants each store to always have a manager.
+
+He is very pleased with the work you've done, but would like to see the system tested out with some fake data. Use ChatGPT to generate:
+
+- A minimum of 3 different store locations.
+- A minimum of 3 employees working at each store (overlap is OK), including 1 and only 1 manager per store.
+- At least one timesheet entry (hours worked) for each employee.
+- Some inventory.
+- At least 1 customer per store making at least 1 purchase.
+
+He'd also like SQL queries to find:
+- Number of employee hours worked per store
+- Number of purchases per store
+- Profit (amount of money made) per store from customer purchases
