@@ -1,3 +1,4 @@
-flavor,quantity,cost_per_bucket,dairy_free,price_per_scoop,
-chocolate,5,15.99,No,3.99,
-vanilla,9,12.99,No,3.99,
+product_id,flavor,quantity,cost_per_bucket,dairy_free,price_per_scoop
+1,chocolate,5,15.9,yes,3.99
+2,vanilla,9,12.99,no,3.99
+3,strawberry,3,14.98,no,3.99
