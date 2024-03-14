@@ -5,7 +5,7 @@ CREATE TABLE genre (
     genre_name VARCHAR(20) UNIQUE NOT NULL CHECK(genre_name ~ '^[A-Za-z]')
 );
 
-\COPY genre FROM './data/genre.csv' WITH CSV HEADER;
+\COPY genre FROM '/Users/kWatts/Repos/CodePlatoon/SQL/game-store-v/store/data/genre.csv' WITH CSV HEADER;
 
 DROP TABLE IF EXISTS gaming_engine CASCADE;
 
@@ -14,7 +14,7 @@ CREATE TABLE gaming_engine (
     engine_name VARCHAR(20) UNIQUE NOT NULL CHECK(engine_name ~ '^[A-Za-z]')
 );
 
-\COPY gaming_engine FROM './data/gaming_engine.csv' WITH CSV HEADER;
+\COPY gaming_engine FROM '/Users/kWatts/Repos/CodePlatoon/SQL/game-store-v/store/data/gaming_engine.csv' WITH CSV HEADER;
 
 -- Drop the table if it exists
 DROP TABLE IF EXISTS game CASCADE;
@@ -31,7 +31,7 @@ CREATE TABLE game (
 
 
 -- Insert Sample Data into Game Table
-\COPY game FROM './data/game.csv' WITH CSV HEADER;
+\COPY game FROM '/Users/kWatts/Repos/CodePlatoon/SQL/game-store-v/store/data/game.csv' WITH CSV HEADER;
 
 DROP TABLE IF EXISTS genre_game CASCADE;
 
@@ -43,7 +43,7 @@ CREATE TABLE genre_game (
     FOREIGN KEY (genre_id) REFERENCES genre (genre_id)
 );
 
-\COPY genre_game FROM './data/genre_game.csv' WITH CSV HEADER;
+\COPY genre_game FROM '/Users/kWatts/Repos/CodePlatoon/SQL/game-store-v/store/data/genre_game.csv' WITH CSV HEADER;
 
 DROP TABLE IF EXISTS action_figure;
 
@@ -54,7 +54,7 @@ CREATE TABLE action_figure (
     price DECIMAL(5,2) NOT NULL CHECK(price > 10 AND price < 100.01)
 );
 
-\COPY action_figure FROM './data/action_figure.csv' WITH CSV HEADER;
+\COPY action_figure FROM '/Users/kWatts/Repos/CodePlatoon/SQL/game-store-v/store/data/action_figure.csv' WITH CSV HEADER;
 
 DROP TABLE IF EXISTS poster;
 
@@ -65,7 +65,7 @@ CREATE TABLE poster (
     price DECIMAL(4,2) NOT NULL CHECK (price <= 20.00 AND price > 6)
 );
 
-\COPY poster FROM './data/poster.csv' WITH CSV HEADER;
+\COPY poster FROM '/Users/kWatts/Repos/CodePlatoon/SQL/game-store-v/store/data/poster.csv' WITH CSV HEADER;
 
 DROP TABLE IF EXISTS employee CASCADE;
 
@@ -88,7 +88,7 @@ CREATE TABLE employee (
     salary DECIMAL(7,2) NOT NULL CHECK (salary > 31987.19 AND salary < 60000.01)
 );
 
-\COPY employee FROM './data/employee.csv' WITH CSV HEADER;
+\COPY employee FROM '/Users/kWatts/Repos/CodePlatoon/SQL/game-store-v/store/data/employee.csv' WITH CSV HEADER;
 
 DROP TABLE IF EXISTS social_security;
 
@@ -99,7 +99,7 @@ CREATE TABLE social_security(
     FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
 
-\COPY social_security FROM './data/social_security.csv' WITH CSV HEADER;
+\COPY social_security FROM '/Users/kWatts/Repos/CodePlatoon/SQL/game-store-v/store/data/social_security.csv' WITH CSV HEADER;
 
 DROP TABLE IF EXISTS shifts;
 
@@ -111,4 +111,4 @@ CREATE TABLE shifts (
     FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
 
-\COPY shifts FROM './data/shifts.csv' WITH CSV HEADER;
+\COPY shifts FROM '/Users/kWatts/Repos/CodePlatoon/SQL/game-store-v/store/data/shifts.csv' WITH CSV HEADER;
