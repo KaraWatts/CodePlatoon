@@ -25,7 +25,7 @@ class Test_student(TestCase):
             self.fail()
         except IntegrityError as e:
             # print(e)
-            self.assertIn(
+            self.assertTrue(
                 'null value in column "good_student" of relation "student_app_student" violates not-null constraint',
                 str(e),
             )
@@ -43,8 +43,8 @@ class Test_student(TestCase):
             new_student.full_clean()
             self.fail()
         except ValidationError as e:
-            # print(e.message_dict)
-            self.assert_(
+            # print("personal_email" in e.message_dict)
+            self.assertTrue(
                 "student_email" in e.message_dict and "personal_email" in e.message_dict
             )
 
@@ -62,7 +62,7 @@ class Test_student(TestCase):
             self.fail()
         except Exception as e:
             # print(e)
-            self.assert_(
+            self.assertTrue(
                 "Field 'locker_number' expected a number but got 'None'" in str(e)
             )
 
@@ -80,7 +80,7 @@ class Test_student(TestCase):
             self.fail()
         except IntegrityError as e:
             # print(e)
-            self.assert_('null value in column "locker_combination" ' in str(e))
+            self.assertTrue('null value in column "locker_combination" ' in str(e))
 
     def test_005_student_with_improper_name_field(self):
         try:
@@ -96,7 +96,7 @@ class Test_student(TestCase):
             self.fail()
         except Exception as e:
             # print(e)
-            self.assert_('null value in column "name" ' in str(e))
+            self.assertTrue('null value in column "name" ' in str(e))
 
     def test_006_student_with_proper_fields(self):
         new_student = Student.objects.create(
@@ -134,7 +134,7 @@ class Test_student(TestCase):
             self.fail()
         except IntegrityError as e:
             # print("\n\n\n", e, "\n\n\n")
-            self.assert_(
+            self.assertTrue(
                 'duplicate key value violates unique constraint "student_app_student_student_email'
                 in str(e)
             )
@@ -161,7 +161,7 @@ class Test_student(TestCase):
             self.fail()
         except IntegrityError as e:
             # print("\n\n\n", e, "\n\n\n")
-            self.assert_(
+            self.assertTrue(
                 'duplicate key value violates unique constraint "student_app_student_personal_email'
                 in str(e)
             )
@@ -188,7 +188,7 @@ class Test_student(TestCase):
             self.fail()
         except IntegrityError as e:
             # print(e)
-            self.assert_("student_app_student_locker_number" in str(e))
+            self.assertTrue("student_app_student_locker_number" in str(e))
 
     def test_010_student_utilizing_default_values(self):
         new_student = Student.objects.create(
@@ -212,7 +212,7 @@ class Test_student(TestCase):
             self.fail()
         except ValidationError as e:
             # print(e.message_dict)
-            self.assert_(
+            self.assertTrue(
                 'Name must be in the format "First Middle Initial. Last"'
                 in e.message_dict["name"]
             )
@@ -228,7 +228,7 @@ class Test_student(TestCase):
             self.fail()
         except ValidationError as e:
             # print(e.message_dict)
-            self.assert_(
+            self.assertTrue(
                 'Invalid school email format. Please use an email ending with "@school.com".'
                 in e.message_dict["student_email"]
             )
@@ -245,7 +245,7 @@ class Test_student(TestCase):
             self.fail()
         except ValidationError as e:
             # print(e.message_dict)
-            self.assert_(
+            self.assertTrue(
                 'Combination must be in the format "12-12-12"'
                 in e.message_dict["locker_combination"]
             )
@@ -261,8 +261,8 @@ class Test_student(TestCase):
             new_student.full_clean()
             self.fail()
         except ValidationError as e:
-            # print(e.message_dict)
-            self.assert_(
+            # print(e.message_dict['locker_number'])
+            self.assertTrue(
                 "Ensure this value is greater than or equal to 1."
                 in e.message_dict["locker_number"]
             )
@@ -279,7 +279,7 @@ class Test_student(TestCase):
             self.fail()
         except ValidationError as e:
             # print(e.message_dict)
-            self.assert_(
+            self.assertTrue(
                 "Ensure this value is less than or equal to 200."
                 in e.message_dict["locker_number"]
             )
@@ -306,7 +306,7 @@ class Test_student(TestCase):
         )
 
         serializer = StudentSerializer(student)
-        self.assertEquals(
+        self.assertEqual(
             serializer.data,
             {
                 "name": "John W. Watson",
@@ -350,7 +350,7 @@ class Test_student(TestCase):
             )
             stud.save()
             serializer = StudentAllSerializer(stud)
-            self.assertEquals(
+            self.assertEqual(
                 serializer.data,
                 {
                     "name": "John W. Watson",
@@ -363,7 +363,7 @@ class Test_student(TestCase):
                 },
             )
         except Exception as e:
-            print(e)
+            # print(e)
             self.fail()
 
     # PART V
@@ -383,7 +383,7 @@ class Test_student(TestCase):
             self.fail()
         except Exception as e:
             # print(e)
-            self.assertEquals("This students class schedule is empty!", str(e))
+            self.assertEqual("This students class schedule is empty!", str(e))
 
     def test_021_student_with_too_many_classes(self):
         try:
@@ -402,7 +402,7 @@ class Test_student(TestCase):
             self.fail()
         except Exception as e:
             # print(e)
-            self.assertEquals("This students class schedule is full!", str(e))
+            self.assertEqual("This students class schedule is full!", str(e))
 
     def test_022_subject_with_improper_subject_format(self):
         try:
@@ -421,7 +421,7 @@ class Test_student(TestCase):
             self.fail()
         except ValidationError as e:
             # print(e.message_dict)
-            self.assert_(
+            self.assertTrue(
                 "Subject must be in title case format."
                 in e.message_dict["subject_name"]
             )
@@ -441,7 +441,7 @@ class Test_student(TestCase):
             self.fail()
         except ValidationError as e:
             # print(e.message_dict)
-            self.assert_(
+            self.assertTrue(
                 'Professor name must be in the format "Professor Adam".'
                 in e.message_dict["professor"]
             )
@@ -457,7 +457,7 @@ class Test_student(TestCase):
             self.fail()
         except Exception as e:
             # print(e)
-            self.assertEquals("This subject is empty!", str(e))
+            self.assertEqual("This subject is empty!", str(e))
 
     def test_025_Grade_with_proper_input(self):
         Subject.objects.create(subject_name="Math", professor="Professor Ben")
@@ -490,8 +490,8 @@ class Test_student(TestCase):
             grade.full_clean()
             self.fail()
         except ValidationError as e:
-            # print(e)
-            self.assert_(
+            # print(e.message_dict['grade'])
+            self.assertTrue(
                 "Ensure this value is less than or equal to 100.0."
                 in e.message_dict["grade"]
             )
@@ -507,4 +507,4 @@ class Test_student(TestCase):
             self.fail()
         except DataError as e:
             # print(e)
-            self.assert_("numeric field overflow" in str(e))
+            self.assertTrue("numeric field overflow" in str(e))

@@ -10,7 +10,7 @@ class Subject(models.Model):
     professor = models.CharField(
         blank=False, null=False, validators=[validate_professor_name]
     )
-    # related field students mtm field from Student model
+    # students = student data
 
     def __str__(self):
         return f"{self.subject_name} - {self.professor} - {self.students.count()}"
