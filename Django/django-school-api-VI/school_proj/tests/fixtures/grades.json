@@ -1,0 +1,236 @@
+[
+  {
+    "model": "grade_app.grade",
+    "pk": 1,
+    "fields": {
+      "grade": "17.33",
+      "a_subject": 1,
+      "student": 3
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 2,
+    "fields": {
+      "grade": "79.43",
+      "a_subject": 1,
+      "student": 4
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 3,
+    "fields": {
+      "grade": "12.88",
+      "a_subject": 2,
+      "student": 4
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 4,
+    "fields": {
+      "grade": "27.77",
+      "a_subject": 3,
+      "student": 4
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 5,
+    "fields": {
+      "grade": "47.62",
+      "a_subject": 3,
+      "student": 5
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 6,
+    "fields": {
+      "grade": "93.07",
+      "a_subject": 4,
+      "student": 5
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 7,
+    "fields": {
+      "grade": "73.96",
+      "a_subject": 5,
+      "student": 5
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 8,
+    "fields": {
+      "grade": "21.75",
+      "a_subject": 2,
+      "student": 6
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 9,
+    "fields": {
+      "grade": "68.52",
+      "a_subject": 3,
+      "student": 6
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 10,
+    "fields": {
+      "grade": "14.32",
+      "a_subject": 4,
+      "student": 6
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 11,
+    "fields": {
+      "grade": "26.14",
+      "a_subject": 1,
+      "student": 7
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 12,
+    "fields": {
+      "grade": "31.18",
+      "a_subject": 3,
+      "student": 7
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 13,
+    "fields": {
+      "grade": "96.21",
+      "a_subject": 5,
+      "student": 7
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 14,
+    "fields": {
+      "grade": "69.19",
+      "a_subject": 1,
+      "student": 8
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 15,
+    "fields": {
+      "grade": "62.10",
+      "a_subject": 2,
+      "student": 8
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 16,
+    "fields": {
+      "grade": "61.51",
+      "a_subject": 3,
+      "student": 8
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 17,
+    "fields": {
+      "grade": "18.61",
+      "a_subject": 3,
+      "student": 9
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 18,
+    "fields": {
+      "grade": "1.07",
+      "a_subject": 4,
+      "student": 9
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 19,
+    "fields": {
+      "grade": "10.03",
+      "a_subject": 5,
+      "student": 9
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 20,
+    "fields": {
+      "grade": "63.01",
+      "a_subject": 1,
+      "student": 10
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 21,
+    "fields": {
+      "grade": "1.17",
+      "a_subject": 4,
+      "student": 10
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 22,
+    "fields": {
+      "grade": "48.92",
+      "a_subject": 5,
+      "student": 10
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 23,
+    "fields": {
+      "grade": "17.30",
+      "a_subject": 4,
+      "student": 11
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 24,
+    "fields": {
+      "grade": "69.22",
+      "a_subject": 1,
+      "student": 12
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 25,
+    "fields": {
+      "grade": "68.58",
+      "a_subject": 2,
+      "student": 12
+    }
+  },
+  {
+    "model": "grade_app.grade",
+    "pk": 26,
+    "fields": {
+      "grade": "27.73",
+      "a_subject": 5,
+      "student": 12
+    }
+  }
+  ]

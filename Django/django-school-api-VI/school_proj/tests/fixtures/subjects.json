@@ -1,0 +1,42 @@
+[
+  {
+    "model": "subject_app.subject",
+    "pk": 1,
+    "fields": {
+      "subject_name": "Python",
+      "professor": "Professor Adam"
+    }
+  },
+  {
+    "model": "subject_app.subject",
+    "pk": 2,
+    "fields": {
+      "subject_name": "Javascript",
+      "professor": "Professor Zaynab"
+    }
+  },
+  {
+    "model": "subject_app.subject",
+    "pk": 3,
+    "fields": {
+      "subject_name": "C#",
+      "professor": "Professor Benjamin"
+    }
+  },
+  {
+    "model": "subject_app.subject",
+    "pk": 4,
+    "fields": {
+      "subject_name": "History",
+      "professor": "Professor Nick"
+    }
+  },
+  {
+    "model": "subject_app.subject",
+    "pk": 5,
+    "fields": {
+      "subject_name": "Philosophy",
+      "professor": "Professor Avila"
+    }
+  }
+  ]

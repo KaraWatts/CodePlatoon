@@ -1,0 +1,168 @@
+[
+  {
+    "model": "student_app.student",
+    "pk": 3,
+    "fields": {
+      "name": "Francisco R. Avila",
+      "student_email": "francisco@school.com",
+      "personal_email": "francisco@gmail.com",
+      "locker_number": 1,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "student_app.student",
+    "pk": 4,
+    "fields": {
+      "name": "Adam B. Cahan",
+      "student_email": "adam@school.com",
+      "personal_email": "adam@gmail.com",
+      "locker_number": 2,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "student_app.student",
+    "pk": 5,
+    "fields": {
+      "name": "This I. Zaynab",
+      "student_email": "zaynab@school.com",
+      "personal_email": "zaynab@gmail.com",
+      "locker_number": 3,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "student_app.student",
+    "pk": 6,
+    "fields": {
+      "name": "Tanjaro D. Kamado",
+      "student_email": "tanjaro@school.com",
+      "personal_email": "tanjaro@gmail.com",
+      "locker_number": 4,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "student_app.student",
+    "pk": 7,
+    "fields": {
+      "name": "Mark M. Grayson",
+      "student_email": "mark@school.com",
+      "personal_email": "mark@gmail.com",
+      "locker_number": 5,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        1,
+        3,
+        5
+      ]
+    }
+  },
+  {
+    "model": "student_app.student",
+    "pk": 8,
+    "fields": {
+      "name": "Ash A. Katchum",
+      "student_email": "ash@school.com",
+      "personal_email": "ash@gmail.com",
+      "locker_number": 6,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "student_app.student",
+    "pk": 9,
+    "fields": {
+      "name": "Nezuko M. Kamato",
+      "student_email": "nezuko@school.com",
+      "personal_email": "nezuko@gmail.com",
+      "locker_number": 7,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "student_app.student",
+    "pk": 10,
+    "fields": {
+      "name": "Monkey D. Luffy",
+      "student_email": "monkey@school.com",
+      "personal_email": "monkey@gmail.com",
+      "locker_number": 8,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        1,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "student_app.student",
+    "pk": 11,
+    "fields": {
+      "name": "Monkey D. Ace",
+      "student_email": "ace@school.com",
+      "personal_email": "ace@gmail.com",
+      "locker_number": 9,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "student_app.student",
+    "pk": 12,
+    "fields": {
+      "name": "Nick M. Smith",
+      "student_email": "nick@school.com",
+      "personal_email": "nick@gmail.com",
+      "locker_number": 10,
+      "locker_combination": "12-12-12",
+      "good_student": true,
+      "subjects": [
+        1,
+        2,
+        5
+      ]
+    }
+  }
+  ]
