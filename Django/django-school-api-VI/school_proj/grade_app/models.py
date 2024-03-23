@@ -14,8 +14,10 @@ class Grade(models.Model):
         null=False,
         validators=[v.MaxValueValidator(100.00), v.MinValueValidator(0.00)],
     )
+    # If subject is deleted set subject to null
     a_subject = models.ForeignKey(Subject, related_name="grades", on_delete=models.SET_NULL, null=True)
-    student = models.ForeignKey(Student, related_name="grades", on_delete=models.SET_NULL, null=True)
+    #If student gets deleted, delete grade history
+    student = models.ForeignKey(Student, related_name="grades", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f"{self.student} - {self.a_subject}"
