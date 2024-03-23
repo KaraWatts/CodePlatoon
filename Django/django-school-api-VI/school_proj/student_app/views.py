@@ -8,5 +8,5 @@ from rest_framework.response import Response
 class All_students(APIView):
 
     def get(self, request):
-        students = StudentAllSerializer(Student.objects, many=True)
+        students = StudentAllSerializer(Student.objects.all(), many=True)
         return Response(students.data)

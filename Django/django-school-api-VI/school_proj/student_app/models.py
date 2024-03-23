@@ -33,6 +33,9 @@ class Student(models.Model):
     good_student = models.BooleanField(default=True)
     subjects = models.ManyToManyField(Subject, related_name='students')
 
+    def __str__(self):
+        return f"{self.id} - {self.name}"
+
     def add_subject(self, subject_id):
         subject_length = self.subjects.count()
         if subject_length < 8:

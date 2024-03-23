@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Subject
+from .serializers import Subject, SubjectSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -7,5 +7,5 @@ from rest_framework.response import Response
 class All_subjects(APIView):
 
     def get(self, request):
-        subjects = Subject.objects
+        subjects = SubjectSerializer(Subject.objects.all(), many=True)
         return Response(subjects.data)

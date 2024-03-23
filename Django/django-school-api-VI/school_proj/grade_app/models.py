@@ -16,3 +16,6 @@ class Grade(models.Model):
     )
     a_subject = models.ForeignKey(Subject, related_name="grades", on_delete=models.SET_NULL, null=True)
     student = models.ForeignKey(Student, related_name="grades", on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return f"{self.student} - {self.a_subject}"
