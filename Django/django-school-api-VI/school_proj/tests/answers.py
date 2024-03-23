@@ -31,6 +31,13 @@ all_subjects = [
     },
 ]
 
+a_subject = {
+  "subject_name": "Python",
+  "professor": "Professor Adam",
+  "students": 6,
+  "grade_average": 54.05
+}
+
 all_students = [
     {
         "name": "Francisco R. Avila",
@@ -289,3 +296,20 @@ all_students = [
         ],
     },
 ]
+
+a_student = {
+  "name": "Francisco R. Avila",
+  "student_email": "francisco@school.com",
+  "personal_email": "francisco@gmail.com",
+  "locker_number": 1,
+  "locker_combination": "12-12-12",
+  "good_student": True,
+  "subjects": [
+    {
+      "subject_name": "Python",
+      "professor": "Professor Adam",
+      "students": 6,
+      "grade_average": 54.05
+    }
+  ]
+}
