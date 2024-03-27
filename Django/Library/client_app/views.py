@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework import serializers
 from django.contrib.auth import authenticate
 from .models import Client
 from rest_framework.views import APIView
@@ -43,6 +44,8 @@ class Log_out(APIView):
 class Info(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+    rentals = serializers.SerializerMethodField()
+
 
     def get(self, request):
         client = ClientSerializer(request.user)
