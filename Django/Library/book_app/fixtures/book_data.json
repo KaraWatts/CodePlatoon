@@ -1,0 +1,202 @@
+[
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "isbn": "978-0743273565",
+      "genre": "Classic",
+      "published_date": "1925-04-10"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "Jurassic Park",
+      "author": "Michael Crichton",
+      "isbn": "978-0345538980",
+      "genre": "Science Fiction",
+      "published_date": "1990-11-20"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "isbn": "978-0061120084",
+      "genre": "Literary Fiction",
+      "published_date": "1960-07-11"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "isbn": "978-0747532743",
+      "genre": "Fantasy",
+      "published_date": "1997-06-26"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "1984",
+      "author": "George Orwell",
+      "isbn": "978-0451524935",
+      "genre": "Dystopian",
+      "published_date": "1949-06-08"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "isbn": "978-0316769488",
+      "genre": "Coming-of-Age",
+      "published_date": "1951-07-16"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "isbn": "978-0141439518",
+      "genre": "Romance",
+      "published_date": "1813-01-28"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "isbn": "978-0345339683",
+      "genre": "Adventure",
+      "published_date": "1937-09-21"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Da Vinci Code",
+      "author": "Dan Brown",
+      "isbn": "978-0307474278",
+      "genre": "Thriller",
+      "published_date": "2003-03-18"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Hitchhiker's Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "isbn": "978-0345391803",
+      "genre": "Science Fiction",
+      "published_date": "1979-10-12"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "Gone Girl",
+      "author": "Gillian Flynn",
+      "isbn": "978-0307588371",
+      "genre": "Mystery",
+      "published_date": "2012-06-05"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Hunger Games",
+      "author": "Suzanne Collins",
+      "isbn": "978-0439023481",
+      "genre": "Young Adult",
+      "published_date": "2008-09-14"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Girl with the Dragon Tattoo",
+      "author": "Stieg Larsson",
+      "isbn": "978-0307949486",
+      "genre": "Thriller",
+      "published_date": "2005-08-16"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "isbn": "978-0062315007",
+      "genre": "Philosophical fiction",
+      "published_date": "1988-01-01"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Road",
+      "author": "Cormac McCarthy",
+      "isbn": "978-0307387899",
+      "genre": "Post-apocalyptic",
+      "published_date": "2006-09-26"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Shining",
+      "author": "Stephen King",
+      "isbn": "978-0307743657",
+      "genre": "Horror",
+      "published_date": "1977-01-28"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "isbn": "978-0544003415",
+      "genre": "Fantasy",
+      "published_date": "1954-07-29"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "Moby-Dick",
+      "author": "Herman Melville",
+      "isbn": "978-0142437247",
+      "genre": "Adventure",
+      "published_date": "1851-10-18"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "isbn": "978-0060850524",
+      "genre": "Dystopian",
+      "published_date": "1932-02-01"
+    }
+  },
+  {
+    "model": "book_app.Book",
+    "fields": {
+      "title": "The Name of the Wind",
+      "author": "Patrick Rothfuss",
+      "isbn": "978-0756404741",
+      "genre": "Fantasy",
+      "published_date": "2007-03-27"
+    }
+  }
+]

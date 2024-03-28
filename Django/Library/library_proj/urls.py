@@ -1,8 +1,8 @@
 """
-URL configuration for school_proj project.
+URL configuration for library_proj project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -14,11 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.contrib import admin
 from django.urls import path, include
-from .views import All_students, A_student
 
 urlpatterns = [
-    path('', All_students.as_view(), name="all_students"),
-    path('<int:id>/', A_student.as_view(), name='a_student'),
-    path('<int:student_id>/', include("grade_app.urls")),
+    path('admin/', admin.site.urls),
+    path('api/books/', include('book_app.urls')),
+    path('api/clients/', include('client_app.urls')),
+    path('api/rentals/', include('rental_app.urls')),
 ]
