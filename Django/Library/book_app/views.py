@@ -14,7 +14,7 @@ class All_books(APIView):
         return Response(ser_books.data)
     
 class A_book(APIView):
-    def get(self, request, id):
+    def get(self, id):
         book = Book.objects.get(id = id)
         ser_book = BookSerializer(book)
         return Response(ser_book.data)
